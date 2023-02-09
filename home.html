@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main-div">
+      <h1>CRUD Operations</h1>
+      <div id="create">
+        <form action="">
+          <p>Product Name :-</p>
+          <input type="text" name="name" id="pName" />
+
+          <p>Image</p>
+          <input type="file" name="image" id="pImage" />
+
+          <p>Price</p>
+          <input type="number" name="price" id="pPrice" />
+          <p>Description</p>
+          <textarea
+            name="description"
+            id="pDesc"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <p>
+            <input type="submit" value="submit" id="submit" />
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
