@@ -1,4 +1,3 @@
-let name1;
 let img;
 let price;
 let desc;
@@ -26,22 +25,43 @@ function getARR() {
 
   return arr;
 }
+function validation() {
+  let name1 = document.getElementById("pName").value;
+  let name2 = document.getElementById("pPrice").value;
+  let name3 = document.getElementById("pDesc").value;
+  console.log(name1);
+  if (name1 == "") {
+    alert("Enter Name");
+    return 1;
+  }
+  if (name2 == "") {
+    alert("Enter Price");
+    return 1;
+  }
+  if (name3 == "") {
+    alert("Enter Description");
+    return 1;
+  }
+}
 
 function products() {
   arr = getARR();
 
-  id = arr.length + 1;
-  obj.ID = id;
-  obj.Name = document.getElementById("pName").value;
-  obj.Image = document.getElementById("pImage").value;
-  obj.Price = document.getElementById("pPrice").value;
-  obj.Description = document.getElementById("pDesc").value;
-  //   console.log(obj.Description);
+  if (validation() !== 1) {
+    id = arr.length + 1;
+    obj.ID = id;
+    obj.Name = document.getElementById("pName").value;
+    obj.Image = document.getElementById("pImage").value;
+    obj.Price = document.getElementById("pPrice").value;
+    obj.Description = document.getElementById("pDesc").value;
+    //   console.log(obj.Description);
 
-  arr.push(obj);
-  console.log(arr);
+    arr.push(obj);
+    console.log(arr);
 
-  localStorage.setItem("ProductData", JSON.stringify(arr));
+    localStorage.setItem("ProductData", JSON.stringify(arr));
+    alert("Product Added Successfully");
+  }
 }
 
 submit.addEventListener("click", (e) => {

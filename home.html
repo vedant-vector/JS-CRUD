@@ -11,23 +11,24 @@
   <body>
     <div id="main-div">
       <h1>CRUD Operations</h1>
-      <button><a href="read.html">View Sort</a></button>
+      <button class="nav-bt"><a href="read.html">View Sort</a></button>
       <div id="create">
-        <form action="">
+        <form action="#" method="POST">
           <p>Product Name :-</p>
-          <input type="text" name="name" id="pName" />
+          <input type="text" name="name" id="pName" required />
 
           <p>Image</p>
           <input type="file" name="image" id="pImage" />
 
           <p>Price</p>
-          <input type="number" name="price" id="pPrice" />
+          <input type="number" name="price" id="pPrice" required />
           <p>Description</p>
           <textarea
             name="description"
             id="pDesc"
             cols="30"
             rows="10"
+            required
           ></textarea>
           <p>
             <input type="submit" value="submit" id="submit" />

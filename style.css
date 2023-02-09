@@ -1,3 +1,39 @@
 /* #printValue {
   display: none;
 } */
+
+#main-div {
+  border: 3px solid black;
+  margin: auto;
+  width: max-content;
+  padding: 100px;
+  padding-top: 10px;
+  background-color: blanchedalmond;
+}
+
+.displayButton {
+  border: none;
+  /* background-color: rgb(77, 76, 76); */
+  /* color: white; */
+}
+
+.nav-bt a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-bt {
+  background-color: black;
+  color: white;
+}
+
+#submit {
+  background-color: black;
+  color: white;
+}
+#printValue {
+  border: 2px solid rgb(29, 34, 172);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: coral;
+}

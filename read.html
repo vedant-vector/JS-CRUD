@@ -9,26 +9,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Read Operations</h2>
-    <button><a href="home.html">Create</a></button>
+    <div id="main-div">
+      <h2>Read Operations</h2>
+      <button class="nav-bt"><a href="home.html">Create</a></button>
 
-    <div id="update">
-      <br />
-      <p style="display: inline">Search By ID</p>
-      <input type="number" name="readID" id="readID" />
-      <button id="rdByID" onclick="searchByID()">search</button>
-      <div id="toBeDisplay"></div>
-      <div id="printValue">
-        <pre> <p id="parentPrintID">I.D.         :-</p><p id="printID"></p></pre>
-        <pre> <p>Product Name :-</p><p id="printPName"></p></pre>
-        <pre> <p>Price        :-</p><p id="printPPrice"></p></pre>
-        <pre> <p>Description  :-</p><p id="printPDesc"></p></pre>
-        <pre> <p>Image        :-</p><p id="printPImg"></p></pre>
-        <button id="delete" onclick="delFun()">Delete</button>
-        <button id="edit">Edit</button>
+      <div id="update">
+        <br />
+        <p style="display: inline">Search By ID</p>
+        <input type="number" name="readID" id="readID" />
+        <button id="rdByID" onclick="searchByID()">search</button>
+        <div id="toBeDisplay"></div>
+        <div id="printValue">
+          <button class="displayButton">I.D. :-</button>
+          <p id="printID"></p>
+          <button class="displayButton">Product Name :-</button>
+          <p id="printPName"></p>
+          <button class="displayButton">Price :-</button>
+          <p id="printPPrice"></p>
+          <button class="displayButton">Description :-</button>
+          <p id="printPDesc"></p>
+          <button class="displayButton">Image :-</button>
+          <p id="printPImg"></p>
+          <button id="delete" onclick="delFun()">Delete</button>
+          <button id="edit">Edit</button>
+        </div>
+        <div id="toBeDisplay"></div>
+        <button id="viewAll" onclick="viewItems()">View All</button>
       </div>
-      <div id="toBeDisplay"></div>
-      <button id="viewAll" onclick="viewItems()">View All</button>
     </div>
   </body>
 </html>
