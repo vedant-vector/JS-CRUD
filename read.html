@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Read Operations</h2>
+    <button><a href="home.html">Create</a></button>
+
+    <div id="update">
+      <br />
+      <p style="display: inline">Search By ID</p>
+      <input type="number" name="readID" id="readID" />
+      <button id="rdByID" onclick="searchByID()">search</button>
+      <div id="toBeDisplay"></div>
+      <div id="printValue">
+        <pre> <p id="parentPrintID">I.D.         :-</p><p id="printID"></p></pre>
+        <pre> <p>Product Name :-</p><p id="printPName"></p></pre>
+        <pre> <p>Price        :-</p><p id="printPPrice"></p></pre>
+        <pre> <p>Description  :-</p><p id="printPDesc"></p></pre>
+        <pre> <p>Image        :-</p><p id="printPImg"></p></pre>
+        <button id="delete" onclick="delFun()">Delete</button>
+        <button id="edit">Edit</button>
+      </div>
+      <div id="toBeDisplay"></div>
+      <button id="viewAll" onclick="viewItems()">View All</button>
+    </div>
+  </body>
+</html>
