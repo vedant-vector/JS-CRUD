@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Read</title>
     <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -15,11 +16,34 @@
 
       <div id="update">
         <br />
-        <p style="display: inline">Search By ID</p>
-        <input type="number" name="readID" id="readID" />
-        <button id="rdByID" onclick="searchByID()">search</button>
-        <div id="toBeDisplay"></div>
-        <div id="printValue">
+        <div id="editSection">
+          <h3>Edit Section</h3>
+          <form action="#" method="POST">
+            <p>Product Name :-</p>
+            <input type="text" name="name" id="pName" required />
+
+            <p>Image</p>
+            <input type="text" name="image" id="pImage" />
+
+            <p>Price</p>
+            <input type="number" name="price" id="pPrice" required />
+            <p>Description</p>
+            <textarea
+              name="description"
+              id="pDesc"
+              cols="30"
+              rows="5"
+              required
+            ></textarea>
+            <p>
+              <input type="submit" value="Save Changes" id="submit" />
+            </p>
+            <p>I.D :-</p>
+            <input type="text" name="iD" id="pID" required />
+          </form>
+        </div>
+
+        <div id="printValue" style="display: none">
           <button class="displayButton">I.D. :-</button>
           <p id="printID"></p>
           <button class="displayButton">Product Name :-</button>
@@ -30,10 +54,14 @@
           <p id="printPDesc"></p>
           <button class="displayButton">Image :-</button>
           <p id="printPImg"></p>
-          <button id="delete" onclick="delFun()">Delete</button>
-          <button id="edit">Edit</button>
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
         </div>
-        <div id="toBeDisplay"></div>
+
+        <p style="display: inline">Search By ID</p>
+        <input type="number" name="readID" id="readID" />
+        <button id="rdByID" onclick="searchByID()">search</button>
+
         <button id="viewAll" onclick="viewItems()">View All</button>
       </div>
     </div>

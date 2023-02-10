@@ -37,3 +37,9 @@
   padding: 10px;
   background-color: coral;
 }
+
+#editSection {
+  text-align: center;
+  border: 2px dotted black;
+  margin-bottom: 10px;
+}

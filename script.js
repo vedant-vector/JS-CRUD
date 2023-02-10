@@ -29,6 +29,7 @@ function validation() {
   let name1 = document.getElementById("pName").value;
   let name2 = document.getElementById("pPrice").value;
   let name3 = document.getElementById("pDesc").value;
+  let name4 = document.getElementById("pImage").value;
   console.log(name1);
   if (name1 == "") {
     alert("Enter Name");
@@ -42,6 +43,10 @@ function validation() {
     alert("Enter Description");
     return 1;
   }
+  if (name4 == "") {
+    alert("Enter Image");
+    return 1;
+  }
 }
 
 function products() {
@@ -49,6 +54,7 @@ function products() {
 
   if (validation() !== 1) {
     id = arr.length + 1;
+
     obj.ID = id;
     obj.Name = document.getElementById("pName").value;
     obj.Image = document.getElementById("pImage").value;
@@ -88,6 +94,7 @@ function searchByID() {
       printPName.innerHTML = "";
       printPPrice.innerHTML = "";
       printPDesc.innerHTML = "";
+      printPImg.innerHTML = "";
       break;
     }
     if (arr[i].ID == tempID) {
@@ -96,13 +103,17 @@ function searchByID() {
       printPName.innerHTML = arr[i].Name;
       printPPrice.innerHTML = arr[i].Price;
       printPDesc.innerHTML = arr[i].Description;
+      printPImg.innerHTML = `<img src="${arr[i].Image}" alt="">`;
     }
   }
 }
 
+// let pro = new Promise((resolve, reject) => {
+//   resolve();
+// });
+
 function viewItems() {
   arr = getARR();
-  console.log(arr);
   store();
   document.getElementById("printValue").style.display = "none";
   // Remember this while sorting
@@ -113,7 +124,33 @@ function viewItems() {
     document.getElementById("printPName").innerHTML = arr[i].Name;
     document.getElementById("printPPrice").innerHTML = arr[i].Price;
     document.getElementById("printPDesc").innerHTML = arr[i].Description;
+    document.getElementById(
+      "printPImg"
+    ).innerHTML = `<img src="${arr[i].Image}" alt="Image">`;
+
     document.getElementById("printValue").style.display = "block";
+
+    let del = document.querySelector(".delete");
+    del.addEventListener("click", async (e) => {
+      let idStore = e.target.parentNode.childNodes[3].textContent;
+      arr = arr.splice(idStore - 1, 1);
+      localStorage.setItem("ProductData", JSON.stringify(arr));
+      document.getElementById("printValue").style.display = "none";
+      viewItems();
+
+      // console.log(arr);
+    });
+
+    let edit = document.querySelector(".edit");
+    edit.addEventListener("click", (e) => {
+      getARR();
+      document.getElementById("pName").value = arr[i].Name;
+      document.getElementById("pPrice").value = arr[i].Price;
+      document.getElementById("pDesc").value = arr[i].Description;
+      document.getElementById("pImage").value = arr[i].Image;
+      document.getElementById("pID").value = arr[i].ID;
+    });
+
     if (i == 0) {
       document.getElementById("viewAll").disabled = true;
     }
@@ -127,9 +164,6 @@ function makeClone() {
 
 //   console.log(document.getElementById("parentPrintID").nextSibling.textContent);
 
-function delFun() {
-  let del = document.getElementById("delete");
-  del.addEventListener("click", (e) => {
-    console.log("Hello");
-  });
-}
+// function afterPageLoad() {
+//   window.location.reload();
+// }
