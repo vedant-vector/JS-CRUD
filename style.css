@@ -43,3 +43,7 @@
   border: 2px dotted black;
   margin-bottom: 10px;
 }
+
+.filterBtn {
+  display: block;
+}

@@ -51,22 +51,33 @@ function validation() {
 
 function products() {
   arr = getARR();
+  if (document.getElementById("submit").value == "Save Changes") {
+    for (let i = 0; i < arr.length; i++) {
+      if (document.getElementById("pID").value == arr[i].ID) {
+        arr[i].Name = document.getElementById("pName").value;
+        arr[i].Image = document.getElementById("pImage").value;
+        arr[i].Price = document.getElementById("pPrice").value;
+        arr[i].Description = document.getElementById("pDesc").value;
+        localStorage.setItem("ProductData", JSON.stringify(arr));
+      }
+    }
+  } else {
+    if (validation() !== 1) {
+      id = arr.length + 1;
 
-  if (validation() !== 1) {
-    id = arr.length + 1;
+      obj.ID = id;
+      obj.Name = document.getElementById("pName").value;
+      obj.Image = document.getElementById("pImage").value;
+      obj.Price = document.getElementById("pPrice").value;
+      obj.Description = document.getElementById("pDesc").value;
+      //   console.log(obj.Description);
 
-    obj.ID = id;
-    obj.Name = document.getElementById("pName").value;
-    obj.Image = document.getElementById("pImage").value;
-    obj.Price = document.getElementById("pPrice").value;
-    obj.Description = document.getElementById("pDesc").value;
-    //   console.log(obj.Description);
+      arr.push(obj);
+      console.log(arr);
+      localStorage.setItem("ProductData", JSON.stringify(arr));
 
-    arr.push(obj);
-    console.log(arr);
-
-    localStorage.setItem("ProductData", JSON.stringify(arr));
-    alert("Product Added Successfully");
+      alert("Product Added Successfully");
+    }
   }
 }
 
@@ -133,7 +144,8 @@ function viewItems() {
     let del = document.querySelector(".delete");
     del.addEventListener("click", async (e) => {
       let idStore = e.target.parentNode.childNodes[3].textContent;
-      arr = arr.splice(idStore - 1, 1);
+      console.log(idStore);
+      // arr = arr.splice(idStore - 1, 1);
       localStorage.setItem("ProductData", JSON.stringify(arr));
       document.getElementById("printValue").style.display = "none";
       viewItems();
@@ -159,11 +171,41 @@ function viewItems() {
 
 function makeClone() {
   let clone = document.getElementById("printValue").cloneNode(true);
-  document.getElementById("printValue").before(clone);
+  document.getElementById("printValue").after(clone);
 }
 
-//   console.log(document.getElementById("parentPrintID").nextSibling.textContent);
+let sortByprice = document.getElementById("sortByprice");
+sortByprice.addEventListener("click", (e) => {
+  sortWtPrice();
+  e.preventDefault();
+});
+function sortWtPrice() {
+  getARR();
 
-// function afterPageLoad() {
-//   window.location.reload();
-// }
+  let str = arr.sort((a, b) => {
+    return a.Price - b.Price;
+  });
+  console.log(arr);
+  console.log(str);
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    makeClone();
+
+    document.getElementById("printID").innerHTML = arr[i].ID;
+    document.getElementById("printPName").innerHTML = arr[i].Name;
+    document.getElementById("printPPrice").innerHTML = arr[i].Price;
+    document.getElementById("printPDesc").innerHTML = arr[i].Description;
+    document.getElementById(
+      "printPImg"
+    ).innerHTML = `<img src="${arr[i].Image}" alt="Image">`;
+
+    document.getElementById("printValue").style.display = "block";
+  }
+}
+document.getElementById("clear").addEventListener("click", () => {
+  clearPage();
+});
+
+function clearPage() {
+  window.location.reload();
+}
