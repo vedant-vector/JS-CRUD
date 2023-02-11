@@ -10,23 +10,59 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <nav id="nav-bar">
+      <img
+        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjg2cHgiIGhlaWdodD0iMTI2cHgiIHZpZXdCb3g9IjAgMCA2ODYgMTI2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1NC4xICg3NjQ5MCkgLSBodHRwczovL3NrZXRjaGFwcC5jb20gLS0+CiAgICA8dGl0bGU+RmluYWwgRmluYWwgRmluYWwgTG9nbzwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iMzUuNDUwMDcyNyUiIHkxPSI2MS4xOTM4NDk0JSIgeDI9Ijg1Ljc4NTA3OTglIiB5Mj0iMjUuNjA0MzY1NiUiIGlkPSJsaW5lYXJHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0VGNTM2NiIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRDcxRTIzIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iMTQuMjE0OTIwMiUiIHkxPSI3NC43MTY5MzY3JSIgeDI9IjU4LjgzNTA2ODIlIiB5Mj0iNDEuNzQwMDQ2NyUiIGlkPSJsaW5lYXJHcmFkaWVudC0yIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Q3MUUyMyIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRUY1MzY2IiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPGcgaWQ9IkZpbmFsLUZpbmFsLUZpbmFsLUxvZ28iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIj4KICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJmaW5hbC1sb2dvIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMTMiPgogICAgICAgICAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUmVjdGFuZ2xlLUNvcHktNCIgZmlsbD0idXJsKCNsaW5lYXJHcmFkaWVudC0xKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjguNjg0Mzk5LCAzMy45MDYyNTApIHNjYWxlKC0xLCAtMSkgdHJhbnNsYXRlKC0yOC42ODQzOTksIC0zMy45MDYyNTApICIgcG9pbnRzPSIxLjAxOTA3NDU2ZS0xMyAzNC43ODUzMTQ0IDU3LjM2ODc5NzcgMCA1Ny4zNjg3OTc3IDMxLjI5ODA3NjkgMS4wMTkwNzQ1NmUtMTMgNjcuODEyNSI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUmVjdGFuZ2xlLUNvcHktNCIgZmlsbD0iI0VGNTM2NiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjguNjg0Mzk5LCA3MC4wNzI5MTcpIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTI4LjY4NDM5OSwgLTcwLjA3MjkxNykgIiBwb2ludHM9IjEuMDE5MDc0NTZlLTEzIDcwLjk1MTk4MSA1Ny4zNjg3OTc3IDM2LjE2NjY2NjcgNTcuMzY4Nzk3NyA2Ny40NjQ3NDM2IDEuMDE5MDc0NTZlLTEzIDEwMy45NzkxNjciPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlJlY3RhbmdsZS1Db3B5LTQiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgyLjE2MTExNywgNTUuOTI3MDgzKSBzY2FsZSgtMSwgMSkgdHJhbnNsYXRlKC04Mi4xNjExMTcsIC01NS45MjcwODMpICIgcG9pbnRzPSI1My40NzY3MTg1IDU2LjgwNjE0NzcgMTEwLjg0NTUxNiAyMi4wMjA4MzMzIDExMC44NDU1MTYgNTMuMzE4OTEwMyA1My40NzY3MTg1IDg5LjgzMzMzMzMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlJlY3RhbmdsZS1Db3B5LTQiIGZpbGw9IiNFRjUzNjYiIHBvaW50cz0iNTMuNDc2NzE4NSA5Mi45NzI4MTQ0IDExMC44NDU1MTYgNTguMTg3NSAxMTAuODQ1NTE2IDg5LjQ4NTU3NjkgNTMuNDc2NzE4NSAxMjYiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPHBhdGggZD0iTTEzNC41OTQ5MzcsNzkuMTMxMzU1OSBMMTUxLjcwODUyOCw3OS4xMzEzNTU5IEMxNTEuOTQxMzY2LDg0LjE2NTI1NDIgMTU2LjAxNjAzLDg4LjYyNzExODYgMTYzLjY5OTY4Myw4OC42MjcxMTg2IEMxNzAuNTY4NDAzLDg4LjYyNzExODYgMTc1LjM0MTU4Miw4NS40MjM3Mjg4IDE3NS40NTgwMDEsODAuMjc1NDIzNyBDMTc1LjU3NDQyLDc2LjcyODgxMzYgMTczLjk0NDU1NCw3My42Mzk4MzA1IDE2NS43OTUyMjUsNzEuMzUxNjk0OSBMMTU2LjEzMjQ0OSw2OC43MjAzMzkgQzEzOC40MzY3NjMsNjMuMzQzMjIwMyAxMzUuNDA5ODcsNTMuMTYxMDE2OSAxMzUuNDA5ODcsNDYuMDY3Nzk2NiBDMTM1LjQwOTg3LDMxLjk5NTc2MjcgMTQ3LjYzMzg2MywyMi41IDE2My4wMDExNjksMjIuNSBDMTc4LjQ4NDg5NCwyMi41IDE5MC4xMjY3OTMsMzEuNTM4MTM1NiAxOTAuMTI2NzkzLDQ2LjYzOTgzMDUgTDE3My4xMjk2MjEsNDYuNjM5ODMwNSBDMTczLjEyOTYyMSw0MS4zNzcxMTg2IDE2OS41MjA2MzIsMzcuNzE2MTAxNyAxNjIuNzY4MzMxLDM3LjcxNjEwMTcgQzE1Ni44MzA5NjMsMzcuNzE2MTAxNyAxNTIuNDA3MDQxLDQwLjkxOTQ5MTUgMTUyLjQwNzA0MSw0NS42MTAxNjk1IEMxNTIuNDA3MDQxLDQ3LjY2OTQ5MTUgMTUzLjIyMTk3NCw1MS40NDQ5MTUzIDE2MS4wMjIwNDYsNTMuNjE4NjQ0MSBMMTcwLjU2ODQwMyw1Ni41OTMyMjAzIEMxOTAuMDEwMzc0LDYyLjA4NDc0NTggMTkyLjgwNDQyOSw3Mi44Mzg5ODMxIDE5Mi41NzE1OTEsODAuMzg5ODMwNSBDMTkyLjMzODc1NCw5Ni4wNjM1NTkzIDE3Ny45MDI3OTksMTAzLjUgMTYzLjY5OTY4MywxMDMuNSBDMTQ2LjIzNjgzNSwxMDMuNSAxMzQuNTk0OTM3LDkzLjMxNzc5NjYgMTM0LjU5NDkzNyw3OS4xMzEzNTU5IFogTTIwNi44MTk0NDMsMjMuNDE1MjU0MiBMMjI2Ljc1MzEzMiwyMy40MTUyNTQyIEwyMjYuNzUzMTMyLDEwMi4yNDE1MjUgTDIwOS43NTU5NiwxMDIuMjQxNTI1IEwyMDkuNzU1OTYsMzIuMjcxNDA0NSBMMjA2LjgxOTQ0MywyMy40MTUyNTQyIFogTTI5Mi40ODQyMTcsNzQuMjExODY0NCBMMzE2LjQ2NjUyOCwyMy40MTUyNTQyIEwzMzAuNzg2MDYzLDIzLjQxNTI1NDIgTDM0MC41NjUyNTgsMTAyLjI0MTUyNSBMMzIzLjQ1MTY2NywxMDIuMjQxNTI1IEwzMTcuODYzNTU2LDU0Ljk5MTUyNTQgTDI5OS4xMjAwOTksOTMuMjAzMzg5OCBMMjg1Ljk2NDc1NCw5My4yMDMzODk4IEwyNjcuMTA0ODc4LDU0Ljk5MTUyNTQgTDI2MS40MDAzNDgsMTAyLjI0MTUyNSBMMjQ0LjI4Njc1NywxMDIuMjQxNTI1IEwyNTMuMDY3NDg3LDMyLjI5NjE2ODMgTDI0OS43NzY5OTQsMjMuNDE1MjU0MiBMMjY4LjI2OTA2OCwyMy40MTUyNTQyIEwyOTIuNDg0MjE3LDc0LjIxMTg2NDQgWiBNMzU4LjA5ODg4MywxMDIuMjQxNTI1IEwzNTguMDk4ODgzLDMyLjk1NzEyMDQgTDM1NC45NzI0NzYsMjMuNDE1MjU0MiBMNDA4LjI3NTQ2NiwyMy40MTUyNTQyIEw0MDguMjc1NDY2LDM4LjE3MzcyODggTDM3NS4yMTI0NzQsMzguMTczNzI4OCBMMzc1LjIxMjQ3NCw1Ni4xMzU1OTMyIEw0MDEuNDA2NzQ2LDU2LjEzNTU5MzIgTDQwMS40MDY3NDYsNzAuNzc5NjYxIEwzNzUuMjEyNDc0LDcwLjc3OTY2MSBMMzc1LjIxMjQ3NCwxMDIuMjQxNTI1IEwzNTguMDk4ODgzLDEwMi4yNDE1MjUgWiBNNDM1LjQ3MTg2Nyw2MyBDNDM1LjQ3MTg2Nyw3Ni4xNTY3Nzk3IDQ0NS44MzMxNTYsODYuNzk2NjEwMiA0NTkuMTA0OTIxLDg2Ljc5NjYxMDIgQzQ3Mi4zNzY2ODUsODYuNzk2NjEwMiA0ODIuODU0Mzk0LDc2LjE1Njc3OTcgNDgyLjg1NDM5NCw2MyBDNDgyLjg1NDM5NCw0OS44NDMyMjAzIDQ3Mi4zNzY2ODUsMzkuMDg4OTgzMSA0NTkuMTA0OTIxLDM5LjA4ODk4MzEgQzQ0NS44MzMxNTYsMzkuMDg4OTgzMSA0MzUuNDcxODY3LDQ5Ljg0MzIyMDMgNDM1LjQ3MTg2Nyw2MyBaIE00MTguNDc0Njk1LDYzIEM0MTguNDc0Njk1LDQwLjU3NjI3MTIgNDM2LjQwMzIxOCwyMi41IDQ1OS4xMDQ5MjEsMjIuNSBDNDgxLjkyMzA0MiwyMi41IDQ5OS44NTE1NjYsNDAuNTc2MjcxMiA0OTkuODUxNTY2LDYzIEM0OTkuODUxNTY2LDg1LjE5NDkxNTMgNDgxLjkyMzA0MiwxMDMuMzg1NTkzIDQ1OS4xMDQ5MjEsMTAzLjM4NTU5MyBDNDM2LjQwMzIxOCwxMDMuMzg1NTkzIDQxOC40NzQ2OTUsODUuMTk0OTE1MyA0MTguNDc0Njk1LDYzIFogTTU0OS4xNjc1NzQsMzguMTczNzI4OCBMNTM0LjI2NTk0NCwzOC4xNzM3Mjg4IEw1MzQuMjY1OTQ0LDYwLjM2ODY0NDEgTDU0OC43MDE4OTgsNjAuMzY4NjQ0MSBDNTU1LjMzNzc4LDYwLjM2ODY0NDEgNTU4LjgzMDM1LDU0LjQxOTQ5MTUgNTU4LjgzMDM1LDQ5LjI3MTE4NjQgQzU1OC44MzAzNSw0NC4zNTE2OTQ5IDU1NS41NzA2MTgsMzguMTczNzI4OCA1NDkuMTY3NTc0LDM4LjE3MzcyODggWiBNNTU2LjYxODM4OSw3NC4zMjYyNzEyIEw1NzguNTYyODY1LDEwMi4yNDE1MjUgTDU1OC4wNzMxMjQsMTAyLjI0MTUyNSBMNTM4LjEwNzc3LDc1LjAxMjcxMTkgTDUzNC4yNjU5NDQsNzUuMDEyNzExOSBMNTM0LjI2NTk0NCwxMDIuMjQxNTI1IEw1MTcuMTUyMzUzLDEwMi4yNDE1MjUgTDUxNy4xNTIzNTMsMzIuNTU0MTM3NSBMNTEzLjgxMTE1OCwyMy40MTUyNTQyIEw1NDkuOTgyNTA3LDIzLjQxNTI1NDIgQzU2OC4xNDM4NjgsMjMuNDE1MjU0MiA1NzYuNjQyNDU0LDM2LjM0MzIyMDMgNTc2LjY0MjQ1NCw0OS4yNzExODY0IEM1NzYuNjQyNDU0LDYwLjQ4MzA1MDggNTcwLjM1NTgyOSw3MS40NjYxMDE3IDU1Ni42MTgzODksNzQuMzI2MjcxMiBaIE02MzcuOTE4OTU5LDczLjI5NjYxMDIgTDY2MS45MDEyNywyMi41IEw2NzYuMjIwODA1LDIyLjUgTDY4NiwxMDEuMzI2MjcxIEw2NjguODg2NDA5LDEwMS4zMjYyNzEgTDY2My4yOTgyOTgsNTQuMDc2MjcxMiBMNjQ0LjU1NDg0MSw5Mi4yODgxMzU2IEw2MzEuMzk5NDk2LDkyLjI4ODEzNTYgTDYxMi41Mzk2Miw1NC4wNzYyNzEyIEw2MDYuODM1MDksMTAxLjMyNjI3MSBMNTg5LjcyMTQ5OSwxMDEuMzI2MjcxIEw1OTguNTAyMjI5LDMxLjM4MDkxNCBMNTk1LjIxMTczNywyMi41IEw2MTMuNzAzODEsMjIuNSBMNjM3LjkxODk1OSw3My4yOTY2MTAyIFoiIGlkPSJTSU1GT1JNIiBmaWxsPSIjRUY1MzY2IiBmaWxsLXJ1bGU9Im5vbnplcm8iPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="
+        alt="logo"
+        id="simform-logo"
+      />
+      <button class="nav-bt navText">
+        <a href="home.html">Add Product</a>
+      </button>
+      <h1 class="navText">Online Product Store</h1>
+    </nav>
     <div id="main-div">
       <h2>Read Operations</h2>
-      <button class="nav-bt"><a href="home.html">Create</a></button>
 
       <div id="update">
         <br />
         <div id="editSection">
           <h3>Edit Section</h3>
           <form action="#" method="POST">
+            <p>I.D :-</p>
+            <input
+              type="text"
+              name="iD"
+              id="pID"
+              required
+              disabled
+              placeholder="I.D"
+            />
             <p>Product Name :-</p>
-            <input type="text" name="name" id="pName" required />
+            <input
+              type="text"
+              name="name"
+              id="pName"
+              required
+              placeholder="Product Name"
+            />
 
             <p>Image</p>
-            <input type="text" name="image" id="pImage" />
+            <input
+              type="text"
+              name="image"
+              id="pImage"
+              placeholder="Image URL"
+            />
 
             <p>Price</p>
-            <input type="number" name="price" id="pPrice" required />
+            <input
+              type="number"
+              name="price"
+              id="pPrice"
+              required
+              placeholder="Price"
+            />
             <p>Description</p>
             <textarea
               name="description"
@@ -34,39 +70,41 @@
               cols="30"
               rows="5"
               required
+              placeholder="Description..."
             ></textarea>
             <p>
               <input type="submit" value="Save Changes" id="submit" />
             </p>
-            <p>I.D :-</p>
-            <input type="text" name="iD" id="pID" required />
           </form>
         </div>
-
-        <div id="printValue" style="display: none">
-          <button class="displayButton">I.D. :-</button>
-          <p id="printID"></p>
-          <button class="displayButton">Product Name :-</button>
-          <p id="printPName"></p>
-          <button class="displayButton">Price :-</button>
-          <p id="printPPrice"></p>
-          <button class="displayButton">Description :-</button>
-          <p id="printPDesc"></p>
-          <button class="displayButton">Image :-</button>
-          <p id="printPImg"></p>
-          <button class="edit">Edit</button>
-          <button class="delete">Delete</button>
-        </div>
-
-        <p style="display: inline">Search By ID</p>
-        <input type="number" name="readID" id="readID" />
+      </div>
+      <div id="viewPanel">
+        <p style="display: inline">Search By ID / Name</p>
+        <input type="text" name="readID" id="readID" />
         <button id="rdByID" onclick="searchByID()">search</button>
-
+        <p></p>
         <button id="viewAll" class="filterBtn" onclick="viewItems()">
           View All
         </button>
-        <button id="sortByprice">Sort By Price</button>
-        <button id="clear">clear</button>
+        <button id="sortByprice" class="filterBtn">Sort By Price ↑</button>
+        <button id="sortByName" class="filterBtn">Sort By Name ↑</button>
+        <button id="clear" class="filterBtn">clear</button>
+        <div id="displayData">
+          <div id="printValue" style="display: none">
+            <button class="displayButton">I.D. :-</button>
+            <p id="printID" class="displayContent"></p>
+            <button class="displayButton">Product Name :-</button>
+            <p id="printPName" class="displayContent"></p>
+            <button class="displayButton">Price :-</button>
+            <p id="printPPrice" class="displayContent"></p>
+            <button class="displayButton">Description :-</button>
+            <p id="printPDesc" class="displayContent"></p>
+            <button class="displayButton">Image :-</button>
+            <p id="printPImg"></p>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
