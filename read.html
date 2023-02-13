@@ -7,6 +7,10 @@
     <title>Read</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <nav id="nav-bar">
@@ -80,8 +84,10 @@
       <div id="viewPanel">
         <p style="display: inline">Search By ID / Name</p>
         <input type="text" name="readID" id="readID" />
-        <button id="rdByID" onclick="searchByID()">search</button>
-        <p></p>
+        <button id="rdByID" onclick="searchByID()">Search</button>
+        <button id="clear" class="filterBtn">Clear</button>
+        <br />
+        <p class="fa"><b>Filter &#xf0b0;</b></p>
         <button id="viewAll" class="filterBtn" onclick="viewItems()">
           View All
         </button>
@@ -89,20 +95,21 @@
         <button id="sortByprice" class="filterBtn">Sort By Price ↑</button>
         <button id="sortByName" class="filterBtn">Sort By Name ↑</button>
 
-        <button id="clear" class="filterBtn">clear</button>
+        <h2>Products:-</h2>
         <div id="displayData">
           <div id="printValue" style="display: none">
-            <button class="displayButton">I.D. :-</button>
+            <!-- <button class="displayButton">I.D. :-</button> -->
             <p id="printID" class="displayContent"></p>
-            <button class="displayButton">Product Name :-</button>
+            <p class="displayButton">Product Name :-</p>
             <p id="printPName" class="displayContent"></p>
-            <button class="displayButton">Price :-</button> ₹
-            <p id="printPPrice" class="displayContent"></p>
+            <p class="displayButton">Price :-</p>
 
-            <button class="displayButton">Description :-</button>
-            <p id="printPDesc" class="displayContent"></p>
-            <button class="displayButton">Image :-</button>
+            <p id="printPPrice" class="displayContent"></p>
+            <p class="displayButton">Image :-</p>
             <p id="printPImg"></p>
+            <p class="displayButton">Description :-</p>
+            <p id="printPDesc" class="displayContent"></p>
+
             <button class="edit" onclick="editFunction()">Edit</button>
             <button id="delete" onclick="delFunction()">Delete</button>
           </div>

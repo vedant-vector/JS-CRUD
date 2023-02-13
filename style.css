@@ -39,7 +39,7 @@ body {
   overflow: hidden;
   padding: 100px;
   padding-top: 10px;
-  background-color: seagreen;
+  background-color: rgb(216, 208, 208);
 }
 #leftPanel {
   width: 30%;
@@ -59,13 +59,23 @@ body {
 
 .displayButton {
   border: none;
-  background-color: rgb(50, 50, 50);
-  color: white;
+  /* background-color: rgb(50, 50, 50); */
+  /* color: white; */
   /* background-color: rgb(77, 76, 76); */
   /* color: white; */
 }
 .displayContent {
-  background-color: white;
+  /* background-color: white; */
+  font-size: larger;
+}
+#printPName {
+  font-weight: bold;
+}
+#delete {
+  background-color: red;
+}
+.edit {
+  background-color: rgb(0, 255, 51);
 }
 
 .nav-bt {
@@ -83,19 +93,26 @@ body {
   border: 2px dotted black;
   margin-bottom: 10px;
   padding-left: 20px;
+  background-color: rgb(194, 190, 199);
 }
 
 .filterBtn {
   display: inline;
   text-align: center;
   width: 150px;
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   border: none;
 }
 #clear {
-  background-color: red;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+#printValue p {
+  margin: 0;
+  width: auto;
+  padding: 5px;
 }
 
 #update {
@@ -108,6 +125,7 @@ body {
 #viewPanel {
   float: left;
   width: 60%;
+  margin-left: 50px;
   /* border: 5px solid black; */
 }
 
@@ -116,16 +134,18 @@ body {
   width: 100%;
   overflow: hidden;
   margin-left: 100px;
+  /* height: 100px ; */
 }
 
 #printValue {
-  width: 300px;
+  width: 230px;
   border: 2px solid rgb(29, 34, 172);
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(26, 188, 185);
+  background-color: rgb(157, 133, 184);
   float: left;
   margin: 5px;
+  text-align: center;
 }
 
 #hereImg {
