@@ -52,17 +52,19 @@ function validation() {
 function products() {
   arr = getARR();
   if (document.getElementById("submit").value == "Save Changes") {
-    for (let i = 0; i < arr.length; i++) {
-      if (document.getElementById("pID").value == arr[i].ID) {
-        arr[i].Name = document.getElementById("pName").value;
-        arr[i].Image = document.getElementById("pImage").value;
-        arr[i].Price = document.getElementById("pPrice").value;
-        arr[i].Description = document.getElementById("pDesc").value;
-        localStorage.setItem("ProductData", JSON.stringify(arr));
+    if (validation() !== 1) {
+      for (let i = 0; i < arr.length; i++) {
+        if (document.getElementById("pID").value == arr[i].ID) {
+          arr[i].Name = document.getElementById("pName").value;
+          arr[i].Image = document.getElementById("pImage").value;
+          arr[i].Price = document.getElementById("pPrice").value;
+          arr[i].Description = document.getElementById("pDesc").value;
+          localStorage.setItem("ProductData", JSON.stringify(arr));
+        }
       }
+      alert("Product Updated Successfully");
+      clearPage();
     }
-    alert("Product Updated Successfully");
-    clearPage();
   } else {
     if (validation() !== 1) {
       id = arr.length + 1;
@@ -116,7 +118,7 @@ function searchByID() {
       printPImg.innerHTML = `<img src="${arr[i].Image}" alt="">`;
       flag++;
     }
-    if (arr[i].Name == tempID) {
+    if (arr[i].Name.toLowerCase() == tempID.toLowerCase()) {
       document.getElementById("printValue").style.display = "block";
       printID.innerHTML = arr[i].ID;
       printPName.innerHTML = arr[i].Name;
@@ -153,59 +155,40 @@ function viewItems() {
 
     document.getElementById("printValue").style.display = "block";
 
-    let edit = document.querySelector(".edit");
-    edit.addEventListener("click", (e) => {
-      getARR();
-      document.getElementById("pName").value = arr[i].Name;
-      document.getElementById("pPrice").value = arr[i].Price;
-      document.getElementById("pDesc").value = arr[i].Description;
-      document.getElementById("pImage").value = arr[i].Image;
-      document.getElementById("pID").value = arr[i].ID;
-    });
-
     if (i == 0) {
       document.getElementById("viewAll").disabled = true;
     }
-    // document.querySelector(".delete").addEventListener("click", (e) => {
-    //   let idStore = e.target.parentNode.childNodes[3].textContent;
-    //   console.log(idStore);
-    //   arr.splice(idStore - 1, 1);
-    //   console.log(arr);
-    //   localStorage.setItem("ProductData", JSON.stringify(arr));
-    //   document.getElementById("printValue").style.display = "none";
-    //   viewItems();
-
-    //   // console.log(arr);
-    // });
   }
+}
+function editFunction() {
+  getARR();
+  let idStore = this.event.target.parentNode.childNodes[3].textContent;
+
+  document.getElementById("pName").value = arr[idStore - 1].Name;
+  document.getElementById("pPrice").value = arr[idStore - 1].Price;
+  document.getElementById("pDesc").value = arr[idStore - 1].Description;
+  document.getElementById("pImage").value = arr[idStore - 1].Image;
+  document.getElementById("pID").value = arr[idStore - 1].ID;
 }
 
 function delFunction() {
   getARR();
   let idStore = this.event.target.parentNode.childNodes[3].textContent;
-  let p2;
+  let getIndex;
 
-  p2 = arr.map((object, index) => {
+  getIndex = arr.map((object, index) => {
     if (object.ID == idStore) return index;
   });
-  console.log(p2);
 
-  let p3;
-  for (let i = 0; i < p2.length; i++) {
-    if (p2[i] !== undefined) {
-      p3 = p2[i];
+  let indexStore;
+  for (let i = 0; i < getIndex.length; i++) {
+    if (getIndex[i] !== undefined) {
+      indexStore = getIndex[i];
     }
   }
+  arr.splice(indexStore, 1);
 
-  // p2 = p2.slice(1, 1);
-  let p1 = arr.splice(p3, 1);
-  console.log(p2);
-  console.log(p3);
-  console.log(p1);
-
-  console.log(arr);
-
-  // localStorage.setItem("ProductData", JSON.stringify(arr));
+  localStorage.setItem("ProductData", JSON.stringify(arr));
   document.getElementById("printValue").style.display = "none";
   viewItems();
 }
