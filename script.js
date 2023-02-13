@@ -2,9 +2,9 @@ let img;
 let price;
 let desc;
 let arr = [];
-
+let clone;
 let id = 0;
-
+let cloneCounter = 0;
 let submit = document.getElementById("submit");
 
 let obj = {
@@ -67,7 +67,7 @@ function products() {
     }
   } else {
     if (validation() !== 1) {
-      id = arr.length + 1;
+      arr == "" ? (id = 1) : (id = arr[arr.length - 1].ID + 1);
 
       obj.ID = id;
       obj.Name = document.getElementById("pName").value;
@@ -140,11 +140,11 @@ function searchByID() {
 function viewItems() {
   getARR();
   store();
-  document.getElementById("printValue").style.display = "none";
+  // document.getElementById("printValue").style.display = "none";
+
   // Remember this while sorting
   for (let i = arr.length - 1; i >= 0; i--) {
     makeClone();
-
     document.getElementById("printID").innerHTML = arr[i].ID;
     document.getElementById("printPName").innerHTML = arr[i].Name;
     document.getElementById("printPPrice").innerHTML = arr[i].Price;
@@ -193,13 +193,10 @@ function delFunction() {
   viewItems();
 }
 
-// document.getElementById("delete").addEventListener("click", (e) => {
-
-// });
-
 function makeClone() {
-  let clone = document.getElementById("printValue").cloneNode(true);
+  clone = document.getElementById("printValue").cloneNode(true);
   document.getElementById("printValue").after(clone);
+  clone.class = "values2";
 }
 
 function valueAssignment() {
@@ -296,4 +293,38 @@ function sortwtName() {
     });
     valueAssignment();
   }
+}
+
+//.................................................
+
+let sortByID = document.getElementById("sortByID");
+sortByID.addEventListener("click", () => {
+  // document.getElementById("displayData").style.display = "none"
+  // location.replace(location.href.split("#")[0]);
+
+  if (sortByID.innerHTML.includes("↑")) {
+    sortWtID();
+    sortByID.innerHTML = "Sort By ID ↓ ";
+  } else {
+    sortWtID();
+    sortByID.innerHTML = "Sort By ID ↑ ";
+  }
+
+  // e.preventDefault();
+});
+
+function sortWtID() {
+  getARR();
+
+  if (sortByID.innerHTML.includes("↑")) {
+    let str = arr.sort((a, b) => {
+      return a.ID - b.ID;
+    });
+  } else {
+    let str = arr.sort((a, b) => {
+      return b.ID - a.ID;
+    });
+  }
+
+  valueAssignment();
 }
