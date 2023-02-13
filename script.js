@@ -136,7 +136,7 @@ function searchByID() {
 // });
 
 function viewItems() {
-  arr = getARR();
+  getARR();
   store();
   document.getElementById("printValue").style.display = "none";
   // Remember this while sorting
@@ -166,8 +166,53 @@ function viewItems() {
     if (i == 0) {
       document.getElementById("viewAll").disabled = true;
     }
+    // document.querySelector(".delete").addEventListener("click", (e) => {
+    //   let idStore = e.target.parentNode.childNodes[3].textContent;
+    //   console.log(idStore);
+    //   arr.splice(idStore - 1, 1);
+    //   console.log(arr);
+    //   localStorage.setItem("ProductData", JSON.stringify(arr));
+    //   document.getElementById("printValue").style.display = "none";
+    //   viewItems();
+
+    //   // console.log(arr);
+    // });
   }
 }
+
+function delFunction() {
+  getARR();
+  let idStore = this.event.target.parentNode.childNodes[3].textContent;
+  let p2;
+
+  p2 = arr.map((object, index) => {
+    if (object.ID == idStore) return index;
+  });
+  console.log(p2);
+
+  let p3;
+  for (let i = 0; i < p2.length; i++) {
+    if (p2[i] !== undefined) {
+      p3 = p2[i];
+    }
+  }
+
+  // p2 = p2.slice(1, 1);
+  let p1 = arr.splice(p3, 1);
+  console.log(p2);
+  console.log(p3);
+  console.log(p1);
+
+  console.log(arr);
+
+  // localStorage.setItem("ProductData", JSON.stringify(arr));
+  document.getElementById("printValue").style.display = "none";
+  viewItems();
+}
+
+// document.getElementById("delete").addEventListener("click", (e) => {
+
+// });
 
 function makeClone() {
   let clone = document.getElementById("printValue").cloneNode(true);
@@ -190,18 +235,7 @@ function valueAssignment() {
   }
 }
 
-let del = document.querySelector(".delete");
-del.addEventListener("click", (e) => {
-  let idStore = e.target.parentNode.childNodes[3].textContent;
-  console.log(idStore);
-  arr.splice(idStore - 1, 1);
-  console.log(arr);
-  localStorage.setItem("ProductData", JSON.stringify(arr));
-  document.getElementById("printValue").style.display = "none";
-  viewItems();
-
-  // console.log(arr);
-});
+// let del = document.querySelector(".delete");
 
 let sortByprice = document.getElementById("sortByprice");
 sortByprice.addEventListener("click", (e) => {
