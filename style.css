@@ -3,7 +3,7 @@
 } */
 
 body {
-  background-color: blueviolet;
+  background-color: rgb(255, 255, 255);
 }
 
 .navText {
@@ -22,9 +22,10 @@ body {
 
 #nav-bar {
   height: max-content;
-  background-color: #d0ddf1;
+  background-color: rgb(194, 190, 199);
   padding: 10px;
   margin-bottom: 10px;
+  border: 3px solid black;
 }
 #simform-logo {
   display: inline;
@@ -72,10 +73,13 @@ body {
   font-weight: bold;
 }
 #delete {
-  background-color: red;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  border-radius: 5px;
 }
 .edit {
-  background-color: rgb(0, 255, 51);
+  /* background-color: rgb(0, 255, 51); */
+  border-radius: 5px;
 }
 
 .nav-bt {
@@ -139,10 +143,10 @@ body {
 
 .printValue {
   width: 230px;
-  border: 2px solid rgb(29, 34, 172);
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(157, 133, 184);
+  background-color: rgb(194, 190, 199);
   float: left;
   margin: 5px;
   text-align: center;

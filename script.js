@@ -24,7 +24,7 @@ function getARR() {
   }
   return arr;
 }
-
+// Adding products in localstorage
 function products() {
   arr = getARR();
   if (document.getElementById("submit").value == "Save Changes") {
@@ -45,21 +45,16 @@ function products() {
     if (validation() !== 1) {
       console.log(arr);
       console.log(arr.length == []);
-
-      try {
-        arr.length === 0 ? (id = 1) : (id = arr[arr.length - 1].ID + 1);
-        obj.ID = id;
-        obj.Name = document.getElementById("pName").value;
-        obj.Image = document.getElementById("pImage").value;
-        obj.Price = document.getElementById("pPrice").value;
-        obj.Description = document.getElementById("pDesc").value;
-      } catch (error) {
-        console.log(error);
-      }
-
+      arr.length === 0 ? (id = 1) : (id = arr[arr.length - 1].ID + 1);
+      obj.ID = id;
+      obj.Name = document.getElementById("pName").value;
+      obj.Image = document.getElementById("pImage").value;
+      obj.Price = document.getElementById("pPrice").value;
+      obj.Description = document.getElementById("pDesc").value;
       arr.push(obj);
       localStorage.setItem("ProductData", JSON.stringify(arr));
       alert("Product Added Successfully");
+      clearPage();
     }
   }
 }
@@ -91,8 +86,6 @@ document.getElementById("clear").addEventListener("click", () => {
 function clearPage() {
   window.location.reload();
 }
-function store() {}
-
 let printValue = document.querySelector(".printValue");
 let printID = document.querySelector(".printID");
 let printPName = document.getElementById("printPName");
@@ -103,7 +96,6 @@ let printPImg = document.getElementById("printPImg");
 function searchByID() {
   arr = getARR();
   let flag = 0;
-  store();
   let tempID = document.getElementById("readID").value;
   for (let i = 0; i < arr.length; i++) {
     if (tempID > arr.length || tempID < 0) {
@@ -116,7 +108,7 @@ function searchByID() {
       printPName.innerHTML = arr[i].Name;
       printPPrice.innerHTML = arr[i].Price;
       printPDesc.innerHTML = arr[i].Description;
-      printPImg.innerHTML = `<img src="${arr[i].Image}" alt="">`;
+      printPImg.innerHTML = `<img src="${arr[i].Image}" id="hereImg" alt="">`;
       flag++;
     }
     if (arr[i].Name.toLowerCase() == tempID.toLowerCase()) {
@@ -125,7 +117,7 @@ function searchByID() {
       printPName.innerHTML = arr[i].Name;
       printPPrice.innerHTML = arr[i].Price;
       printPDesc.innerHTML = arr[i].Description;
-      printPImg.innerHTML = `<img src="${arr[i].Image}" alt="">`;
+      printPImg.innerHTML = `<img src="${arr[i].Image}" id="hereImg" alt="">`;
       flag++;
     }
   }
@@ -133,9 +125,8 @@ function searchByID() {
     clearPage();
   }
 }
-getARR();
 function viewItems() {
-  store();
+  getARR();
   for (let i = arr.length - 1; i >= 0; i--) {
     makeClone();
     document.querySelector(".printID").innerHTML = arr[i].ID;
@@ -275,16 +266,12 @@ function sortwtName() {
     valueAssignment();
   }
 }
-
 let sortByID = document.getElementById("sortByID");
 sortByID.addEventListener("click", () => {
-  // document.getElementById("displayData").style.display = "none"
-  // location.replace(location.href.split("#")[0]);
   let str = document.querySelectorAll(".printValue");
   str.forEach((element) => {
     element.style.display = "none";
   });
-
   if (sortByID.innerHTML.includes("↑")) {
     sortWtID();
     sortByID.innerHTML = "Sort By ID ↓ ";
@@ -292,13 +279,10 @@ sortByID.addEventListener("click", () => {
     sortWtID();
     sortByID.innerHTML = "Sort By ID ↑ ";
   }
-
-  // e.preventDefault();
 });
 
 function sortWtID() {
   getARR();
-
   if (sortByID.innerHTML.includes("↑")) {
     let str = arr.sort((a, b) => {
       return a.ID - b.ID;
@@ -308,81 +292,5 @@ function sortWtID() {
       return b.ID - a.ID;
     });
   }
-
   valueAssignment();
 }
-
-// }
-// let items = document.querySelectorAll(".printValue");
-
-// let sortByID = document.getElementById("sortByID");
-// sortByID.addEventListener("click", () => {
-//   // document.getElementById("printValue").innerHTML = "";
-//   // document.getElementById("printValue").style = none;
-//   if (sortByID.innerHTML.includes("↑")) {
-//     // sortWtID();
-//     // console.log(items);
-
-//     Array.from(items)
-//       .sort(function (a, b) {
-//         // console.log(a);
-//         a = ~~a.querySelector(".printID").innerText;
-//         // console.log(a);
-//         b = ~~b.querySelector(".printID").innerText;
-//         // console.log(b);
-//         // console.log(Array.from(items));
-//         return b - a;
-//       })
-//       .forEach(function (val, index) {
-//         val.style.order = index;
-//         console.log(val);
-//       });
-//     // console.log(Array.from(items));
-//     sortByID.innerHTML = "Sort By ID ↓ ";
-//   } else {
-//     // sortWtID();
-//     // console.log(items);
-
-//     Array.from(items)
-//       .sort(function (a, b) {
-//         // console.log(a);
-//         a = ~~a.querySelector(".printID").innerText;
-//         console.log(a);
-//         b = ~~b.querySelector(".printID").innerText;
-//         console.log(b);
-//         // console.log(Array.from(items));
-//         return a - b;
-//       })
-//       .forEach(function (val, index) {
-//         val.style.order = index;
-//         console.log(val);
-//       });
-//     // console.log(Array.from(items));
-//     sortByID.innerHTML = "Sort By ID ↑ ";
-//   }
-// });
-
-// function sortWtID() {
-//   getARR();
-//   console.log(arr);
-//   if (sortByID.innerHTML.includes("↑")) {
-//     let str = arr.sort((a, b) => {
-//       return a.ID - b.ID;
-//     });
-//   } else {
-//     let str = arr.sort((a, b) => {
-//       return b.ID - a.ID;
-//     });
-//   }
-//   valueAssignment();
-// }
-
-// let items = document.querySelectorAll("#printValue");
-// console.log(items);
-
-// Array.from(items).sort(function(a,b){
-//   a = ~~a.querySelector("#printID")
-//   b = ~~b.querySelector("#printID")
-//   return a - b;
-
-// })
