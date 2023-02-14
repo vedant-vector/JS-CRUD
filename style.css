@@ -109,7 +109,7 @@ body {
   color: rgb(255, 255, 255);
 }
 
-#printValue p {
+.printValue p {
   margin: 0;
   width: auto;
   padding: 5px;
@@ -137,7 +137,7 @@ body {
   /* height: 100px ; */
 }
 
-#printValue {
+.printValue {
   width: 230px;
   border: 2px solid rgb(29, 34, 172);
   border-radius: 10px;

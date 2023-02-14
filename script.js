@@ -2,12 +2,11 @@ let arr = [];
 let clone;
 let id = 0;
 let submit = document.getElementById("submit");
-document.getElementById("clear").addEventListener("click", () => {
-  clearPage();
+submit.addEventListener("click", (e) => {
+  products();
+  e.preventDefault();
 });
-function clearPage() {
-  window.location.reload();
-}
+
 let obj = {
   ID: "",
   Name: "",
@@ -44,12 +43,20 @@ function products() {
     }
   } else {
     if (validation() !== 1) {
-      arr == "" ? (id = 1) : (id = arr[arr.length - 1].ID + 1);
-      obj.ID = id;
-      obj.Name = document.getElementById("pName").value;
-      obj.Image = document.getElementById("pImage").value;
-      obj.Price = document.getElementById("pPrice").value;
-      obj.Description = document.getElementById("pDesc").value;
+      console.log(arr);
+      console.log(arr.length == []);
+
+      try {
+        arr.length === 0 ? (id = 1) : (id = arr[arr.length - 1].ID + 1);
+        obj.ID = id;
+        obj.Name = document.getElementById("pName").value;
+        obj.Image = document.getElementById("pImage").value;
+        obj.Price = document.getElementById("pPrice").value;
+        obj.Description = document.getElementById("pDesc").value;
+      } catch (error) {
+        console.log(error);
+      }
+
       arr.push(obj);
       localStorage.setItem("ProductData", JSON.stringify(arr));
       alert("Product Added Successfully");
@@ -78,20 +85,20 @@ function validation() {
     return 1;
   }
 }
-
-submit.addEventListener("click", (e) => {
-  products();
-  // e.preventDefault();
+document.getElementById("clear").addEventListener("click", () => {
+  clearPage();
 });
-
-function store() {
-  let printValue = document.getElementById("printValue");
-  let printID = document.getElementById("printID");
-  let printPName = document.getElementById("printPName");
-  let printPPrice = document.getElementById("printPPrice");
-  let printPDesc = document.getElementById("printPDesc");
-  let printPImg = document.getElementById("printPImg");
+function clearPage() {
+  window.location.reload();
 }
+function store() {}
+
+let printValue = document.querySelector(".printValue");
+let printID = document.querySelector(".printID");
+let printPName = document.getElementById("printPName");
+let printPPrice = document.getElementById("printPPrice");
+let printPDesc = document.getElementById("printPDesc");
+let printPImg = document.getElementById("printPImg");
 
 function searchByID() {
   arr = getARR();
@@ -104,7 +111,7 @@ function searchByID() {
       break;
     }
     if (arr[i].ID == tempID) {
-      document.getElementById("printValue").style.display = "block";
+      document.querySelector(".printValue").style.display = "block";
       printID.innerHTML = arr[i].ID;
       printPName.innerHTML = arr[i].Name;
       printPPrice.innerHTML = arr[i].Price;
@@ -113,7 +120,7 @@ function searchByID() {
       flag++;
     }
     if (arr[i].Name.toLowerCase() == tempID.toLowerCase()) {
-      document.getElementById("printValue").style.display = "block";
+      document.querySelector(".printValue").style.display = "block";
       printID.innerHTML = arr[i].ID;
       printPName.innerHTML = arr[i].Name;
       printPPrice.innerHTML = arr[i].Price;
@@ -126,26 +133,25 @@ function searchByID() {
     clearPage();
   }
 }
-
+getARR();
 function viewItems() {
-  getARR();
   store();
   for (let i = arr.length - 1; i >= 0; i--) {
     makeClone();
-    document.getElementById("printID").innerHTML = arr[i].ID;
+    document.querySelector(".printID").innerHTML = arr[i].ID;
     document.getElementById("printPName").innerHTML = arr[i].Name;
     document.getElementById("printPPrice").innerHTML = arr[i].Price + "₹";
     document.getElementById("printPDesc").innerHTML = arr[i].Description;
     document.getElementById(
       "printPImg"
     ).innerHTML = `<img src="${arr[i].Image}" id="hereImg" alt="Image">`;
-    document.getElementById("printValue").style.display = "block";
+    document.querySelector(".printValue").style.display = "block";
     if (i == 0) {
       document.getElementById("viewAll").disabled = true;
     }
   }
 }
-viewItems();
+
 function editFunction() {
   getARR();
   let idStore = this.event.target.parentNode.childNodes[3].textContent;
@@ -157,6 +163,10 @@ function editFunction() {
 }
 
 function delFunction() {
+  let str = document.querySelectorAll(".printValue");
+  str.forEach((element) => {
+    element.style.display = "none";
+  });
   getARR();
   let idStore = this.event.target.parentNode.childNodes[3].textContent;
   let getIndex;
@@ -171,32 +181,36 @@ function delFunction() {
   }
   arr.splice(indexStore, 1);
   localStorage.setItem("ProductData", JSON.stringify(arr));
-  document.getElementById("printValue").style.display = "none";
-  clearPage();
+  document.querySelector(".printValue").style.display = "none";
+  // clearPage();
   viewItems();
 }
 
 function makeClone() {
-  clone = document.getElementById("printValue").cloneNode(true);
-  document.getElementById("printValue").after(clone);
+  clone = document.querySelector(".printValue").cloneNode(true);
+  document.querySelector(".printValue").after(clone);
   clone.class = "values2";
 }
 
 function valueAssignment() {
   for (let i = arr.length - 1; i >= 0; i--) {
     makeClone();
-    document.getElementById("printID").innerHTML = arr[i].ID;
+    document.querySelector(".printID").innerHTML = arr[i].ID;
     document.getElementById("printPName").innerHTML = arr[i].Name;
     document.getElementById("printPPrice").innerHTML = "₹" + arr[i].Price;
     document.getElementById("printPDesc").innerHTML = arr[i].Description;
     document.getElementById(
       "printPImg"
     ).innerHTML = `<img src="${arr[i].Image}" id="hereImg" alt="Image">`;
-    document.getElementById("printValue").style.display = "block";
+    document.querySelector(".printValue").style.display = "block";
   }
 }
 let sortByprice = document.getElementById("sortByprice");
 sortByprice.addEventListener("click", (e) => {
+  let str = document.querySelectorAll(".printValue");
+  str.forEach((element) => {
+    element.style.display = "none";
+  });
   if (sortByprice.innerHTML.includes("↑")) {
     sortWtPrice();
     sortByprice.innerHTML = "Sort By Price ↓ ";
@@ -222,6 +236,10 @@ function sortWtPrice() {
 
 let sortByName = document.getElementById("sortByName");
 sortByName.addEventListener("click", () => {
+  let str = document.querySelectorAll(".printValue");
+  str.forEach((element) => {
+    element.style.display = "none";
+  });
   getARR();
   if (sortByName.innerHTML.includes("↑")) {
     sortwtName();
@@ -260,8 +278,13 @@ function sortwtName() {
 
 let sortByID = document.getElementById("sortByID");
 sortByID.addEventListener("click", () => {
-  // document.getElementById("printValue").innerHTML = "";
-  // document.getElementById("printValue").style = none;
+  // document.getElementById("displayData").style.display = "none"
+  // location.replace(location.href.split("#")[0]);
+  let str = document.querySelectorAll(".printValue");
+  str.forEach((element) => {
+    element.style.display = "none";
+  });
+
   if (sortByID.innerHTML.includes("↑")) {
     sortWtID();
     sortByID.innerHTML = "Sort By ID ↓ ";
@@ -269,11 +292,13 @@ sortByID.addEventListener("click", () => {
     sortWtID();
     sortByID.innerHTML = "Sort By ID ↑ ";
   }
+
+  // e.preventDefault();
 });
 
 function sortWtID() {
   getARR();
-  console.log(arr);
+
   if (sortByID.innerHTML.includes("↑")) {
     let str = arr.sort((a, b) => {
       return a.ID - b.ID;
@@ -283,5 +308,81 @@ function sortWtID() {
       return b.ID - a.ID;
     });
   }
+
   valueAssignment();
 }
+
+// }
+// let items = document.querySelectorAll(".printValue");
+
+// let sortByID = document.getElementById("sortByID");
+// sortByID.addEventListener("click", () => {
+//   // document.getElementById("printValue").innerHTML = "";
+//   // document.getElementById("printValue").style = none;
+//   if (sortByID.innerHTML.includes("↑")) {
+//     // sortWtID();
+//     // console.log(items);
+
+//     Array.from(items)
+//       .sort(function (a, b) {
+//         // console.log(a);
+//         a = ~~a.querySelector(".printID").innerText;
+//         // console.log(a);
+//         b = ~~b.querySelector(".printID").innerText;
+//         // console.log(b);
+//         // console.log(Array.from(items));
+//         return b - a;
+//       })
+//       .forEach(function (val, index) {
+//         val.style.order = index;
+//         console.log(val);
+//       });
+//     // console.log(Array.from(items));
+//     sortByID.innerHTML = "Sort By ID ↓ ";
+//   } else {
+//     // sortWtID();
+//     // console.log(items);
+
+//     Array.from(items)
+//       .sort(function (a, b) {
+//         // console.log(a);
+//         a = ~~a.querySelector(".printID").innerText;
+//         console.log(a);
+//         b = ~~b.querySelector(".printID").innerText;
+//         console.log(b);
+//         // console.log(Array.from(items));
+//         return a - b;
+//       })
+//       .forEach(function (val, index) {
+//         val.style.order = index;
+//         console.log(val);
+//       });
+//     // console.log(Array.from(items));
+//     sortByID.innerHTML = "Sort By ID ↑ ";
+//   }
+// });
+
+// function sortWtID() {
+//   getARR();
+//   console.log(arr);
+//   if (sortByID.innerHTML.includes("↑")) {
+//     let str = arr.sort((a, b) => {
+//       return a.ID - b.ID;
+//     });
+//   } else {
+//     let str = arr.sort((a, b) => {
+//       return b.ID - a.ID;
+//     });
+//   }
+//   valueAssignment();
+// }
+
+// let items = document.querySelectorAll("#printValue");
+// console.log(items);
+
+// Array.from(items).sort(function(a,b){
+//   a = ~~a.querySelector("#printID")
+//   b = ~~b.querySelector("#printID")
+//   return a - b;
+
+// })
