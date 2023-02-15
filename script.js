@@ -145,12 +145,14 @@ function viewItems() {
 
 function editFunction() {
   getARR();
-  let idStore = this.event.target.parentNode.childNodes[3].textContent;
-  document.getElementById("pName").value = arr[idStore - 1].Name;
-  document.getElementById("pPrice").value = arr[idStore - 1].Price;
-  document.getElementById("pDesc").value = arr[idStore - 1].Description;
-  document.getElementById("pImage").value = arr[idStore - 1].Image;
-  document.getElementById("pID").value = arr[idStore - 1].ID;
+  let idStore = this.event.target.parentNode.childNodes[1].textContent;
+  let index = arr.findIndex((x) => x.ID == idStore);
+
+  document.getElementById("pName").value = arr[index].Name;
+  document.getElementById("pPrice").value = arr[index].Price;
+  document.getElementById("pDesc").value = arr[index].Description;
+  document.getElementById("pImage").value = arr[index].Image;
+  document.getElementById("pID").value = arr[index].ID;
 }
 
 function delFunction() {
@@ -159,7 +161,8 @@ function delFunction() {
     element.style.display = "none";
   });
   getARR();
-  let idStore = this.event.target.parentNode.childNodes[3].textContent;
+  let idStore = this.event.target.parentNode.childNodes[1].textContent;
+  console.log(idStore);
   let getIndex;
   getIndex = arr.map((object, index) => {
     if (object.ID == idStore) return index;
